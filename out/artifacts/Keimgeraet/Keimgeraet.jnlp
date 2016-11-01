@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Keimgeraet.jnlp">
+  <information>
+    <title>Keimgeraet</title>
+    <vendor>Unknown</vendor>
+    <description>Keimgeraet</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Keimgeraet.jar" size="20799" download="eager" />
+    <jar href="junit.jar" size="245039" download="eager" />
+    <jar href="pi4j-core.jar" size="537230" download="eager" />
+    <jar href="pi4j-device.jar" size="228020" download="eager" />
+    <jar href="pi4j-example.jar" size="260535" download="eager" />
+    <jar href="pi4j-gpio-extension.jar" size="96078" download="eager" />
+    <jar href="pi4j-service.jar" size="19063" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="sample.Main"  name="Keimgeraet" />
+  <update check="background"/>
+</jnlp>

@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="950.0" minWidth="1900.0" prefHeight="950.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Programm">
+                     <items>
+                        <MenuItem fx:id="keimsorte1" mnemonicParsing="false" onAction="#KeimSorte1" text="Keimsorte 1" />
+                        <MenuItem fx:id="keimsorte2" mnemonicParsing="false" onAction="#KeimSorte2" text="Keimsorte 2" />
+                     </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox spacing="15.0">
+               <children>
+                  <TextField promptText="Benutzername" />
+                  <PasswordField promptText="Passwort" />
+                  <Region prefHeight="51.0" prefWidth="20.0" />
+                  <Button mnemonicParsing="false" text="Log In" />
+                  <Button mnemonicParsing="false" text="Log Out" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Label" />
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#start" prefHeight="50.0" prefWidth="180.0" text="Start" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="phase1Button" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" onAction="#Phase1" prefHeight="50.0" prefWidth="180.0" text="Phase 1" />
+            <Button fx:id="phase2Button" layoutX="20.0" layoutY="76.0" mnemonicParsing="false" onAction="#Phase2" prefHeight="50.0" prefWidth="180.0" text="Phase 2" />
+            <Button fx:id="phase3Button" layoutX="20.0" layoutY="142.0" mnemonicParsing="false" onAction="#Phase3" prefHeight="50.0" prefWidth="180.0" text="Phase 3" />
+            <Button fx:id="ledButton" layoutX="20.0" layoutY="208.0" mnemonicParsing="false" onAction="#LedToggle" prefHeight="50.0" prefWidth="180.0" text="LED">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="testButton" layoutX="20.0" layoutY="324.0" mnemonicParsing="false" onAction="#Laufzeiten" prefHeight="50.0" prefWidth="180.0" text="Zeiten" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Konsole">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="txtArea" editable="false" text="Herzlich willkomen in der Keimgeräte-Software Version 0.1&#10;-----------------------------------------------------------------&#10;Diese Software befindet sich zur Zeit noch im Beta-Stadium.&#10;Software-bugs oder Featureanfrage können sie unter der&#10;E-Mail Adresse: info@rene-reinhardt.de einreichen.&#10;&#10;Viel Spaß bei der Nutzung!&#10;-----------------------------------------------------------------&#10;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Einstellungen">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <Label text="Phase 1 Wasser">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1wDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="8" />
+                                          <Label text="Wasserdauer (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1wAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="1800" />
+                                          <Label text="Wasserabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="81.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1wGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="300" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Label text="Phase 2 Wasser">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox layoutX="20.0" layoutY="142.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2wDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="8" />
+                                          <Label text="Wasserdauer (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="203.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2wAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="21600" />
+                                          <Label text="Wasserabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="284.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2wGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="2880" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Label text="Phase 3 Wasser">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox layoutX="20.0" layoutY="345.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3wDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Wasserdauer (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="406.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3wAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Wasserabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="572.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3wGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="25.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Phase 1 Trommel">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1tDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="45" />
+                                          <Label text="Trommeldauer (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1tAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="900" />
+                                          <Label text="Trommelabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="81.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1tGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="300" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Label text="Phase 2 Trommel">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox layoutX="20.0" layoutY="142.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2tDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="120" />
+                                          <Label text="Trommeldauer(sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="203.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2tAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="1800" />
+                                          <Label text="Trommelabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="284.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2tGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="2880" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Label text="Phase 3 Trommel">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox layoutX="20.0" layoutY="345.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3tDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Trommeldauer(sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="406.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3tAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Trommelabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="572.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3tGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox layoutX="374.0" layoutY="10.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Phase 1 Luft">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1lDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="1800" />
+                                          <Label text="Luftdauer (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1lAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="3600" />
+                                          <Label text="Luftabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="81.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p1lGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="300" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Label text="Phase 2 Luft">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox layoutX="20.0" layoutY="142.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2lDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="1800" />
+                                          <Label text="Luftdauer (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="203.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2lAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="3600" />
+                                          <Label text="Luftabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="284.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p2lGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="2880" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Label text="Phase 3 Luft">
+                                       <VBox.margin>
+                                          <Insets left="28.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox layoutX="20.0" layoutY="345.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3lDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Luftdauer (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="406.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3lAlleXSekundenF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Luftabstand (sec)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="572.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="p3lGesDauerF" alignment="CENTER" prefHeight="51.0" prefWidth="118.0" promptText="-" text="0" />
+                                          <Label text="Gesamtdauer (min)">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <HBox prefHeight="100.0">
+                                 <children>
+                                    <VBox minHeight="200.0" minWidth="180.0" spacing="10.0">
+                                       <children>
+                                          <CheckBox fx:id="checkboxP1W" mnemonicParsing="false" selected="true" text="P1 Wasser" />
+                                          <CheckBox fx:id="checkboxP2W" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" selected="true" text="P2 Wasser" />
+                                          <CheckBox fx:id="checkboxP3W" layoutX="10.0" layoutY="45.0" mnemonicParsing="false" selected="true" text="P3 Wasser" />
+                                          <CheckBox fx:id="twW" mnemonicParsing="false" text="Trommel w. W.">
+                                             <VBox.margin>
+                                                <Insets top="100.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="lwW" layoutX="10.0" layoutY="245.0" mnemonicParsing="false" text="Luft w. W." />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="10.0" layoutY="10.0" minHeight="200.0" minWidth="180.0" spacing="10.0">
+                                       <children>
+                                          <CheckBox fx:id="checkboxP1T" mnemonicParsing="false" selected="true" text="P1 Trommel" />
+                                          <CheckBox fx:id="checkboxP2T" mnemonicParsing="false" selected="true" text="P2 Trommel" />
+                                          <CheckBox fx:id="checkboxP3T" mnemonicParsing="false" selected="true" text="P3 Trommel" />
+                                          <Button fx:id="saveButton" minWidth="200.0" mnemonicParsing="false" onAction="#SaveButton" text="Save">
+                                             <VBox.margin>
+                                                <Insets top="400.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="110.0" layoutY="10.0" minHeight="200.0" minWidth="180.0" spacing="10.0">
+                                       <children>
+                                          <CheckBox fx:id="checkboxP1L" mnemonicParsing="false" selected="true" text="P1 Luft" />
+                                          <CheckBox fx:id="checkboxP2L" mnemonicParsing="false" selected="true" text="P2 Luft" />
+                                          <CheckBox fx:id="checkboxP3L" mnemonicParsing="false" selected="true" text="P3 Luft" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="40.0" />
+                                 </HBox.margin>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

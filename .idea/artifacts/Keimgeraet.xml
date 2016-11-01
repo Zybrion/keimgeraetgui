@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Keimgeraet">
+    <output-path>$PROJECT_DIR$/out/artifacts/Keimgeraet</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Keimgeraet.jar">
+        <element id="module-output" name="Keimgeraet" />
+        <element id="library" level="project" name="junit" />
+		<element id="directory" name="META-INF">
+		<element id="file-copy" path="C:\Users\rener\IdeaProjects\Keimgeraet\src\META-INF" />
+  </element>
+      </element>
+    </root>
+  </artifact>
+</component>

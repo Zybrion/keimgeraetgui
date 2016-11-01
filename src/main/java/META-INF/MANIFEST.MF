@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: <classpathentry kind="lib" path="Keimgeraet.jar"/>
+Main-Class: sample.Main
+
